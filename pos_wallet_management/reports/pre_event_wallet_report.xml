@@ -1,0 +1,43 @@
+
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+<odoo>
+    <template id="report_event_wallet_template">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="o">
+                <div class="page" style="text-align:center">
+                    <div class="col-12 text-center">
+                        <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" style="max-height: 120px;" alt="Logo"/>
+                        <h2 t-esc="o.company_id.name" style="font-size:20px;"/>
+                    </div>
+                    <div class="col-12 text-center" style="margin-top:20px;margin-bottom:20px;">
+                        <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('QR',o.wk_barcode, 200, 200)" style="width:120px;height:120px;"/>
+                    </div>
+                    <div class="text-center" style="margin-top:10px;">
+                        <img t-field="o.wk_barcode" t-options="{'widget': 'barcode', 'width': 400, 'height': 80}"/>
+                    </div>
+                    <div class="col-12 text-center">
+                        <h2 t-esc="o.wk_barcode"/>
+                    </div>
+                    <div class="col-12 text-center" style="margin-top:20px;">
+                        <t t-if="o.partner_id and o.partner_id.name">
+                            <span t-esc="o.partner_id.name"/>
+                        </t>
+                        <t t-else="">
+                            --
+                        </t>
+                    </div>
+                    <div class="col-12 text-center" style="margin-top:20px;">
+                        <t t-if="o.partner_id and o.partner_id.phone">
+                            <span t-esc="o.partner_id.phone"/>
+                        </t>
+                        <t t-else="">
+                            --
+                        </t>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>   
+</odoo>

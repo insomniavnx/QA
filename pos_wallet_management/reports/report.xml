@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+<odoo>
+    <record id="event_wallet_template_report" model="ir.actions.report">
+        <field name="name">Print Wallet</field>
+        <field name="model">pos.wallet</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">pos_wallet_management.report_event_wallet_template</field>
+        <field name="report_file">pos_wallet_management.report_event_wallet_template</field>
+        <field name="paperformat_id" ref="pos_wallet_management.paperformat_print_wallet"/>
+        <field name="binding_model_id" ref="model_pos_wallet"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

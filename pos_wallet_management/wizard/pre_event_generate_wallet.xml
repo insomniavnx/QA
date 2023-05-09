@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+<odoo>
+    <data>
+        <record id="view_pos_wallet_bulk_generate" model="ir.ui.view">
+            <field name="name">Wallet Bulk Generation</field>
+            <field name="model">generate.bulk.wallet</field>
+            <field name="arch" type="xml">
+                <form string="Bulk Wallet Generation">
+                    <group>
+                        <group>
+                          <field name="no_of_wallets"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="generate_wallets" string="Generate" type="object" class="btn-primary"/>
+                        <button special="cancel" string="Cancel" class="btn-default"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_view_pos_wallet_bulk_generate" model="ir.actions.act_window">
+            <field name="name">Generate Pre-Event Wallets</field>
+            <field name="res_model">generate.bulk.wallet</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="view_pos_wallet_bulk_generate"></field>
+        </record>
+    </data>
+</odoo>
